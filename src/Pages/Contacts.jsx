@@ -6,6 +6,7 @@ import { removeContact } from "../Redux/action";
 import { AiFillEdit } from "react-icons/ai";
 import { MdOutlineDelete } from "react-icons/md";
 import { GrDocumentMissing } from "react-icons/gr";
+import { Toaster } from "react-hot-toast";
 
 const Contacts = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ const Contacts = () => {
   };
   useEffect(() => {}, [dispatch, AllContacts.length]);
   return (
-    <div className="justify-center pt-16 text-gray-50   p-4  w-full ">
+    <div className="justify-center pt-16 text-gray-50 p-4 w-full ">
       <div className="m-4 flex justify-end ">
         <button className="rounded-md bg-green-600 pt-3 pb-3 pl-3 pr-3 text-xl shadow-lg shadow-green-500">
           <Link to="/contact_form">Add Contact</Link>
@@ -50,15 +51,16 @@ const Contacts = () => {
         // className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         className="flex flex-col"
       >
+        <Toaster position="bottom-center" />
         {AllContacts.map((el) => {
           return (
             <div
               key={el.id}
-              className="bg-gray-300 rounded-lg shadow-md m-4 p-4 text-blue-950 flex items-center justify-between border-2"
+              className="bg-gray-300 rounded-lg shadow-md m-4 p-4 text-blue-950 flex items-center justify-between border-2 mobile:flex-col"
             >
               <div
                 onClick={() => togglePopup(el)}
-                className="w-3/4 flex items-center "
+                className="w-3/4 flex items-center mobile:flex-col"
               >
                 <img
                   className="w-20 rounded-full"
@@ -70,17 +72,24 @@ const Contacts = () => {
                     <Popup close={() => togglePopup(data)} el={singleContact} />
                   )}
                 </div>{" "}
-                <div className="text-left">
-                  <p>First Name : {el.first_name}</p>
-                  <p>Last Name : {el.last_name}</p>
+                <div className="text-left mobile:text-sm">
+                  <p>
+                    <span className="font-extrabold">First Name :</span>{" "}
+                    {el.first_name}
+                  </p>
+                  <p>
+                    <span className="font-extrabold">Last Name :</span>{" "}
+                    {el.last_name}
+                  </p>
                   {/* <p>Mobile   : {el.mob}</p> */}
                   <p>
-                    Status : {el.status === "active" ? "Active" : "Inactive"}
+                    <span className="font-extrabold">Status :</span>{" "}
+                    {el.status === "active" ? "Active" : "Inactive"}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-5">
+              <div className="flex gap-5 mobile:mt-4">
                 <Link to={`edit/${el.id}`}>
                   <button className="rounded bg-green-500 p-2 ">
                     <AiFillEdit style={{ color: "white" }} />

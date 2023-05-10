@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addContact } from "../Redux/action";
+import { Toaster } from "react-hot-toast";
 function ContactForm() {
   const dispatch = useDispatch();
 
@@ -23,12 +24,11 @@ function ContactForm() {
   }
 
   return (
-    <div className="w-1/3 p-5 pt-10 pb-10 m-auto rounded-md backdrop-blur-md bg-white/30 shadow-md shadow-white ">
+    <div className="w-1/3 p-5 pt-10 pb-10 m-auto rounded-md backdrop-blur-md bg-white/30 shadow-md shadow-white mobile:w-11/12">
+      <Toaster position="bottom-center" />
       <h2 className="text-3xl mb-5 font-bold text-blue-900">Create Contact</h2>
+
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="first-name">
-          First Name
-        </label> */}
         <input
           className="w-11/12 border border-gray-400 p-2 rounded-md"
           id="first-name"
@@ -40,9 +40,6 @@ function ContactForm() {
         />
       </div>
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="last-name">
-          Last Name
-        </label> */}
         <input
           className="w-11/12 border border-gray-400 p-2 rounded-md"
           id="last-name"
@@ -54,9 +51,6 @@ function ContactForm() {
         />
       </div>
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="last-name">
-          Mobile Number
-        </label> */}
         <input
           className="w-11/12 border border-gray-400 p-2 rounded-md"
           id="last-name"
@@ -70,9 +64,6 @@ function ContactForm() {
         />
       </div>
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="status">
-          Status
-        </label> */}
         <select
           className="w-11/12 border border-gray-400 p-2 rounded-md"
           id="status"

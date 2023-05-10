@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { editContact } from "../Redux/action";
+import { Toaster } from "react-hot-toast";
 
 function EditContact() {
   const { id } = useParams();
@@ -29,12 +30,10 @@ function EditContact() {
   }, [AllContact, id]);
 
   return (
-    <div className="w-1/3 p-5 pt-10 pb-10 m-auto rounded-md backdrop-blur-md bg-white/30 shadow-md shadow-white">
+    <div className="w-1/3 p-5 pt-10 pb-10 m-auto rounded-md backdrop-blur-md bg-white/30 shadow-md shadow-white mobile:w-11/12">
       <h2 className="text-3xl mb-5 font-bold text-blue-900">Edit Contact</h2>
+      <Toaster position="bottom-center" />
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="first-name">
-          First Name
-        </label> */}
         <input
           className="w-full border border-gray-400 p-2 rounded-md"
           id="first-name"
@@ -46,9 +45,6 @@ function EditContact() {
         />
       </div>
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="last-name">
-          Last Name
-        </label> */}
         <input
           className="w-full border border-gray-400 p-2 rounded-md"
           id="last-name"
@@ -60,9 +56,6 @@ function EditContact() {
         />
       </div>
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="last-name">
-          Mobile Number
-        </label> */}
         <input
           className="w-full border border-gray-400 p-2 rounded-md"
           id="last-name"
@@ -74,9 +67,6 @@ function EditContact() {
         />
       </div>
       <div className="mb-4">
-        {/* <label className="block font-bold mb-2" htmlFor="status">
-          Status
-        </label> */}
         <select
           className="w-full border border-gray-400 p-2 rounded-md"
           id="status"

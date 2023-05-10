@@ -9,8 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="z-50 w-screen fixed shadow-md shadow-slate-700 top-0 text-xl text-blue-500 bg-slate-900 font-bold p-4">
-        {/* {currentRoute === "/" ? " Contact Management App" : "Charts and Maps"} */}
+      <h1 className="z-50 w-screen fixed shadow-md shadow-slate-700 top-0 text-xl text-blue-500 bg-slate-900 font-bold p-4 sm:w-screen">
         Dashboard
       </h1>
       <div className="flex w-full ">
